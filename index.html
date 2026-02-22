@@ -3,144 +3,305 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mian M. Jahanzaib | Web Developer</title>
+    <title>Mian M. Jahanzaib | Premium Web Experiences</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,600&display=swap');
+
+        :root {
+            --accent: #e2e8f0; 
+            --highlight: #38bdf8; 
+            --bg-color: #050505; 
+        }
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
+            background-color: var(--bg-color);
+            color: var(--accent);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
-            background-color: #0f172a;
-            color: #f8fafc;
             overflow: hidden;
-        }
-
-        /* The Face and Eyes */
-        .face {
             position: relative;
-            width: 250px;
-            height: 250px;
-            background: #cbd5e1;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            margin-bottom: 40px;
+            cursor: none; /* Hide standard cursor by default */
         }
 
-        .eye {
-            position: relative;
-            width: 70px;
-            height: 70px;
-            background: #fff;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.2);
-        }
-
-        .pupil {
+        /* The Textured "Wall" Background (Thicker & brighter grid) */
+        body::before {
+            content: '';
             position: absolute;
-            width: 25px;
-            height: 25px;
-            background: #0f172a;
-            border-radius: 50%;
-            transition: transform 0.1s ease-out;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.08) 2px, transparent 2px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.08) 2px, transparent 2px);
+            background-size: 60px 60px;
+            z-index: 1;
+            pointer-events: none;
         }
 
-        /* Call to Action Text */
-        .cta-container {
-            text-align: center;
+        /* The Custom Glowing Cursor */
+        .custom-cursor {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 8px;
+            height: 8px;
+            background-color: #fff;
+            border-radius: 50%;
+            pointer-events: none; 
+            z-index: 100;
+            transform: translate(-50%, -50%);
+            box-shadow: 0 0 15px 4px rgba(255, 255, 255, 0.5);
+            transition: opacity 0.2s ease;
+            opacity: 1;
+        }
+
+        /* Allow pointer cursor on buttons and hide the custom light */
+        a, button, .secret-3d-btn, .cta-btn {
+            cursor: pointer;
+        }
+
+        body.hovering-button .custom-cursor {
+            opacity: 0; /* Makes the light disappear completely over buttons */
+        }
+
+        /* The Flashlight Overlay */
+        .flashlight-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: radial-gradient(
+                circle 280px at var(--cursor-x, 50%) var(--cursor-y, 50%), 
+                transparent 0%, 
+                rgba(5, 5, 5, 0.98) 80%
+            );
+            pointer-events: none; /* Allows clicks to pass through to z-index 5 */
             z-index: 10;
+            transition: background 0.1s ease, opacity 0.8s ease;
+        }
+
+        body.lights-on .flashlight-overlay {
+            opacity: 0;
+        }
+
+        /* Premium Content Styling */
+        .content-wrapper {
+            text-align: center;
+            z-index: 5; /* Under the flashlight */
+            padding: 20px;
+            max-width: 800px;
+        }
+
+        /* 3D Button Container - Now centered above the text */
+        .toggle-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+            z-index: 5;
+        }
+
+        /* The 3D Button - Base State: RED (Lights Off) */
+        .secret-3d-btn {
+            appearance: none;
+            outline: none;
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.3s ease;
+            
+            background: #dc2626; /* Strong Red */
+            box-shadow: 
+                0 8px 0 #991b1b, /* Dark red 3D side */
+                0 15px 20px rgba(0,0,0,0.4);
+        }
+
+        .secret-3d-btn:hover {
+            transform: translateY(-2px);
+            background: #ef4444; /* Brighter red on hover */
+            box-shadow: 
+                0 8px 0 #991b1b, 
+                0 15px 20px rgba(239, 68, 68, 0.4);
+        }
+
+        .secret-3d-btn:active {
+            transform: translateY(6px); 
+            box-shadow: 
+                0 2px 0 #991b1b, 
+                0 5px 10px rgba(239, 68, 68, 0.4);
+        }
+
+        /* The 3D Button - Active State: GREEN (Lights On) */
+        body.lights-on .secret-3d-btn {
+            background: #16a34a; /* Strong Green */
+            box-shadow: 
+                0 8px 0 #14532d, /* Dark green 3D side */
+                0 15px 20px rgba(0,0,0,0.4);
+        }
+
+        body.lights-on .secret-3d-btn:hover {
+            background: #22c55e; /* Brighter green on hover */
+            box-shadow: 
+                0 8px 0 #14532d, 
+                0 15px 20px rgba(34, 197, 94, 0.4);
+        }
+
+        body.lights-on .secret-3d-btn:active {
+            transform: translateY(6px); 
+            box-shadow: 
+                0 2px 0 #14532d, 
+                0 5px 10px rgba(34, 197, 94, 0.4);
+        }
+
+        .secret-3d-btn svg {
+            width: 24px;
+            height: 24px;
+            stroke: currentColor;
+            stroke-width: 2.5;
+            fill: none;
+        }
+
+        .eyebrow {
+            font-size: 0.9rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 20px;
+            display: block;
         }
 
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #38bdf8;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #fff;
+            user-select: none; 
+        }
+
+        h1 span {
+            font-style: italic;
+            color: var(--highlight);
         }
 
         p {
             font-size: 1.2rem;
-            color: #94a3b8;
-            margin-bottom: 30px;
-            max-width: 500px;
-            line-height: 1.5;
+            line-height: 1.8;
+            color: #a1a1aa;
+            margin-bottom: 40px;
+            font-weight: 300;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            user-select: none;
         }
 
-        /* The Button */
-        .btn {
+        p strong {
+            color: #e2e8f0;
+            font-weight: 400;
+        }
+
+        /* Luxury CTA Button */
+        .cta-btn {
             display: inline-block;
-            padding: 15px 35px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: #0f172a;
-            background-color: #38bdf8;
-            border: none;
-            border-radius: 50px;
+            padding: 16px 40px;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 700;
+            color: var(--bg-color);
+            background-color: var(--highlight);
             text-decoration: none;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 4px;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(56, 189, 248, 0.4);
+        .cta-btn:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.3);
         }
     </style>
 </head>
 <body>
 
-    <div class="face">
-        <div class="eye">
-            <div class="pupil"></div>
-        </div>
-        <div class="eye">
-            <div class="pupil"></div>
-        </div>
-    </div>
+    <div class="custom-cursor" id="customCursor"></div>
 
-    <div class="cta-container">
-        <h1>Looking for a Custom Website?</h1>
-        <p>Whether you need a sleek business site, a robust web app, or a personal portfolio, I've got my eyes on the perfect logic-driven solution for you.</p>
+    <div class="flashlight-overlay" id="flashlight"></div>
+
+    <div class="content-wrapper">
         
-        <a href="https://mian-m-jahanzaib.onrender.com/#contact" class="btn">Let's Build It Together</a>
+        <div class="toggle-container">
+            <button class="secret-3d-btn" id="toggleLights" title="Toggle Lights">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18.36 6.64a9 9 0 1 1-12.73 0M12 2v10" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+
+        <span class="eyebrow">Full-Stack Web Developer</span>
+        <h1>Precision in Every Pixel.<br><span>Logic in Every Line.</span></h1>
+        
+        <p>You and your business deserve a website that actually works for you. I design and build <strong>lightning-fast, custom web applications</strong> that grab attention, run flawlessly, and turn your visitors into clients. Ready to stand out from the crowd?</p>
+        
+        <a href="https://mian-m-jahanzaib.onrender.com" class="cta-btn">Let's Build It</a>
     </div>
 
     <script>
+        const flashlight = document.getElementById('flashlight');
+        const customCursor = document.getElementById('customCursor');
+        const interactables = document.querySelectorAll('button, a');
+        const body = document.body;
+        
+        // Mouse movement logic for both the flashlight and the glowing cursor
         document.addEventListener('mousemove', (e) => {
-            const mouseX = e.clientX;
-            const mouseY = e.clientY;
+            // Move flashlight gradient
+            flashlight.style.setProperty('--cursor-x', `${e.clientX}px`);
+            flashlight.style.setProperty('--cursor-y', `${e.clientY}px`);
 
-            const eyes = document.querySelectorAll('.eye');
-            
-            eyes.forEach(eye => {
-                const rect = eye.getBoundingClientRect();
-                const eyeCenterX = rect.left + rect.width / 2;
-                const eyeCenterY = rect.top + rect.height / 2;
+            // Move custom glowing cursor
+            customCursor.style.left = `${e.clientX}px`;
+            customCursor.style.top = `${e.clientY}px`;
+        });
 
-                const angle = Math.atan2(mouseY - eyeCenterY, mouseX - eyeCenterX);
-                
-                // Calculate distance to move pupil (max 15px from center)
-                const distance = Math.min(15, Math.hypot(mouseX - eyeCenterX, mouseY - eyeCenterY) / 10);
-                
-                const pupilX = Math.cos(angle) * distance;
-                const pupilY = Math.sin(angle) * distance;
-
-                const pupil = eye.querySelector('.pupil');
-                pupil.style.transform = `translate(${pupilX}px, ${pupilY}px)`;
+        // Make the custom cursor disappear when hovering over buttons
+        interactables.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                body.classList.add('hovering-button');
             });
+            el.addEventListener('mouseleave', () => {
+                body.classList.remove('hovering-button');
+            });
+        });
+
+        // 3D Button Lights On/Off Toggle Logic
+        const toggleBtn = document.getElementById('toggleLights');
+        let isLightOn = false;
+
+        toggleBtn.addEventListener('click', () => {
+            isLightOn = !isLightOn;
+            
+            if (isLightOn) {
+                body.classList.add('lights-on');
+            } else {
+                body.classList.remove('lights-on');
+            }
         });
     </script>
 </body>

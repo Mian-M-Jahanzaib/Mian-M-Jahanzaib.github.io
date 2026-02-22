@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mian M. Jahanzaib | Premium Web Experiences</title>
+    <title>Mian M Jahanzaib</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;1,600&display=swap');
 
@@ -30,10 +30,10 @@
             justify-content: center;
             overflow: hidden;
             position: relative;
-            cursor: none; /* Hide standard cursor by default */
+            cursor: none; 
+            touch-action: none; /* Locks scrolling for app-like feel */
         }
 
-        /* The Textured "Wall" Background (Thicker & brighter grid) */
         body::before {
             content: '';
             position: absolute;
@@ -46,7 +46,6 @@
             pointer-events: none;
         }
 
-        /* The Custom Glowing Cursor */
         .custom-cursor {
             position: fixed;
             top: 0;
@@ -63,16 +62,15 @@
             opacity: 1;
         }
 
-        /* Allow pointer cursor on buttons and hide the custom light */
         a, button, .secret-3d-btn, .cta-btn {
             cursor: pointer;
+            touch-action: manipulation; 
         }
 
         body.hovering-button .custom-cursor {
-            opacity: 0; /* Makes the light disappear completely over buttons */
+            opacity: 0; 
         }
 
-        /* The Flashlight Overlay */
         .flashlight-overlay {
             position: fixed;
             top: 0;
@@ -84,7 +82,7 @@
                 transparent 0%, 
                 rgba(5, 5, 5, 0.98) 80%
             );
-            pointer-events: none; /* Allows clicks to pass through to z-index 5 */
+            pointer-events: none; 
             z-index: 10;
             transition: background 0.1s ease, opacity 0.8s ease;
         }
@@ -93,23 +91,23 @@
             opacity: 0;
         }
 
-        /* Premium Content Styling */
+        /* Added specific padding and width to create a safe zone on mobile */
         .content-wrapper {
             text-align: center;
-            z-index: 5; /* Under the flashlight */
-            padding: 20px;
+            z-index: 5; 
+            padding: 20px 25px; 
+            width: 100%;
             max-width: 800px;
         }
 
-        /* 3D Button Container - Now centered above the text */
+        /* Tightened the gap slightly so it fits vertically on small phones */
         .toggle-container {
             display: flex;
             justify-content: center;
-            margin-bottom: 30px;
+            margin-bottom: 25px; 
             z-index: 5;
         }
 
-        /* The 3D Button - Base State: RED (Lights Off) */
         .secret-3d-btn {
             appearance: none;
             outline: none;
@@ -123,15 +121,15 @@
             color: #fff;
             transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.3s ease;
             
-            background: #dc2626; /* Strong Red */
+            background: #dc2626; 
             box-shadow: 
-                0 8px 0 #991b1b, /* Dark red 3D side */
+                0 8px 0 #991b1b, 
                 0 15px 20px rgba(0,0,0,0.4);
         }
 
         .secret-3d-btn:hover {
             transform: translateY(-2px);
-            background: #ef4444; /* Brighter red on hover */
+            background: #ef4444; 
             box-shadow: 
                 0 8px 0 #991b1b, 
                 0 15px 20px rgba(239, 68, 68, 0.4);
@@ -144,16 +142,15 @@
                 0 5px 10px rgba(239, 68, 68, 0.4);
         }
 
-        /* The 3D Button - Active State: GREEN (Lights On) */
         body.lights-on .secret-3d-btn {
-            background: #16a34a; /* Strong Green */
+            background: #16a34a; 
             box-shadow: 
-                0 8px 0 #14532d, /* Dark green 3D side */
+                0 8px 0 #14532d, 
                 0 15px 20px rgba(0,0,0,0.4);
         }
 
         body.lights-on .secret-3d-btn:hover {
-            background: #22c55e; /* Brighter green on hover */
+            background: #22c55e; 
             box-shadow: 
                 0 8px 0 #14532d, 
                 0 15px 20px rgba(34, 197, 94, 0.4);
@@ -175,22 +172,29 @@
         }
 
         .eyebrow {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             letter-spacing: 4px;
             text-transform: uppercase;
             color: #888;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             display: block;
         }
 
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 2.5rem; /* Scaled down slightly to prevent edge-touching */
             font-weight: 400;
             line-height: 1.2;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             color: #fff;
             user-select: none; 
+        }
+
+        /* Scales back up beautifully on iPads and Desktop */
+        @media (min-width: 768px) {
+            h1 { font-size: 4rem; margin-bottom: 20px; }
+            .eyebrow { font-size: 0.9rem; margin-bottom: 20px; }
+            .toggle-container { margin-bottom: 30px; }
         }
 
         h1 span {
@@ -199,10 +203,10 @@
         }
 
         p {
-            font-size: 1.2rem;
-            line-height: 1.8;
+            font-size: 1rem; /* Scaled down slightly for mobile */
+            line-height: 1.6;
             color: #a1a1aa;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
             font-weight: 300;
             max-width: 700px;
             margin-left: auto;
@@ -210,16 +214,19 @@
             user-select: none;
         }
 
+        @media (min-width: 768px) {
+            p { font-size: 1.1rem; margin-bottom: 40px; }
+        }
+
         p strong {
             color: #e2e8f0;
             font-weight: 400;
         }
 
-        /* Luxury CTA Button */
         .cta-btn {
             display: inline-block;
-            padding: 16px 40px;
-            font-size: 1rem;
+            padding: 14px 35px;
+            font-size: 0.9rem;
             letter-spacing: 1px;
             text-transform: uppercase;
             font-weight: 700;
@@ -230,6 +237,10 @@
             transition: all 0.4s ease;
             position: relative;
             overflow: hidden;
+        }
+
+        @media (min-width: 768px) {
+            .cta-btn { padding: 16px 40px; font-size: 1rem; }
         }
 
         .cta-btn:hover {
@@ -269,18 +280,21 @@
         const interactables = document.querySelectorAll('button, a');
         const body = document.body;
         
-        // Mouse movement logic for both the flashlight and the glowing cursor
-        document.addEventListener('mousemove', (e) => {
-            // Move flashlight gradient
-            flashlight.style.setProperty('--cursor-x', `${e.clientX}px`);
-            flashlight.style.setProperty('--cursor-y', `${e.clientY}px`);
+        function moveLight(x, y) {
+            flashlight.style.setProperty('--cursor-x', `${x}px`);
+            flashlight.style.setProperty('--cursor-y', `${y}px`);
+            customCursor.style.left = `${x}px`;
+            customCursor.style.top = `${y}px`;
+        }
 
-            // Move custom glowing cursor
-            customCursor.style.left = `${e.clientX}px`;
-            customCursor.style.top = `${e.clientY}px`;
+        document.addEventListener('pointermove', (e) => {
+            moveLight(e.clientX, e.clientY);
         });
 
-        // Make the custom cursor disappear when hovering over buttons
+        document.addEventListener('pointerdown', (e) => {
+            moveLight(e.clientX, e.clientY);
+        });
+
         interactables.forEach(el => {
             el.addEventListener('mouseenter', () => {
                 body.classList.add('hovering-button');
@@ -290,7 +304,6 @@
             });
         });
 
-        // 3D Button Lights On/Off Toggle Logic
         const toggleBtn = document.getElementById('toggleLights');
         let isLightOn = false;
 

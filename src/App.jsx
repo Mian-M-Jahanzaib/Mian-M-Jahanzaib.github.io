@@ -146,33 +146,39 @@ function App() {
         <section className="py-12 md:py-24 border-y border-white/5 bg-black/40" id="skills">
           <div className="space-y-8 md:space-y-12">
             
+            {/* Top Row: Frontend & UI */}
             <div className="marquee group">
               <div className="marquee-content animate-scroll-left">
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">REACT <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">NODE.JS <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">EXPRESS <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">MONGODB <span className="w-4 h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">REACT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">TYPESCRIPT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">TAILWIND <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">FRAMER MOTION <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">JAVASCRIPT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
               </div>
               <div className="marquee-content animate-scroll-left">
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">REACT <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">NODE.JS <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">EXPRESS <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">MONGODB <span className="w-4 h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">REACT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">TYPESCRIPT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">TAILWIND <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">FRAMER MOTION <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">JAVASCRIPT <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
               </div>
             </div>
 
+            {/* Bottom Row: Backend, Desktop & DB */}
             <div className="marquee">
               <div className="marquee-content animate-scroll-right">
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">CORE PHP <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">JAVASCRIPT <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">SQLITE <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">C++ <span className="w-4 h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">NODE.JS <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">ELECTRON.JS <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">CORE PHP <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">MONGODB <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">SQLITE <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
               </div>
               <div className="marquee-content animate-scroll-right">
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">CORE PHP <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">JAVASCRIPT <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">SQLITE <span className="w-4 h-4 bg-primary rounded-full"></span></span>
-                <span className="text-5xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">C++ <span className="w-4 h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">NODE.JS <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">ELECTRON.JS <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">CORE PHP <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">MONGODB <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
+                <span className="text-4xl md:text-7xl font-black text-white/5 flex items-center gap-8 px-4">SQLITE <span className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full"></span></span>
               </div>
             </div>
 

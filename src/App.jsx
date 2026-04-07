@@ -451,8 +451,8 @@ function App() {
               <span className="text-white font-black uppercase tracking-widest text-base border-b-2 border-white/10 pb-2">Socials</span>
               <div className="flex flex-col gap-4 items-center sm:items-start">
                 <a href="https://x.com/mmj_developer" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">X (Twitter)</a>
-                <a href="https://www.instagram.com/jahanzaib._.21/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">Instagram</a>
-                <a href="https://web.facebook.com/muhammad.jahanzaib.215993" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">Facebook</a>
+                <a href="https://www.instagram.com/mmj_developer/" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">Instagram</a>
+                <a href="https://web.facebook.com/mmjdeveloper" target="_blank" rel="noopener noreferrer" className="text-sm md:text-base font-bold uppercase tracking-widest text-slate-400 hover:text-primary transition-colors">Facebook</a>
               </div>
             </div>
 

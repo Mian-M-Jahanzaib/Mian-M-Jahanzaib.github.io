@@ -242,7 +242,7 @@ function App() {
 
               <a href="https://github.com/Mian-M-Jahanzaib/mern-portfolio" target="_blank" rel="noopener noreferrer" className="min-w-[85vw] md:min-w-[600px] snap-center group block cursor-pointer">
                 <div className="relative aspect-video overflow-hidden mb-6 bg-slate-900 border border-white/10 group-hover:border-primary/50 transition-colors">
-                  <img src="portfolio.png" alt="MERN Portfolio" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+                  <img src="portfolio.jfif" alt="MERN Portfolio" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                 </div>
                 <div className="space-y-4">
                   <div className="flex gap-2">

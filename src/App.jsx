@@ -226,7 +226,7 @@ function App() {
                 </div>
               </a>
 
-              <a href="https://digisphere.wuaze.com" target="_blank" rel="noopener noreferrer" className="min-w-[85vw] md:min-w-[600px] snap-center group block cursor-pointer">
+              <a href="https://digisphere.iblogger.org" target="_blank" rel="noopener noreferrer" className="min-w-[85vw] md:min-w-[600px] snap-center group block cursor-pointer">
                 <div className="relative aspect-video overflow-hidden mb-6 bg-slate-900 border border-white/10 group-hover:border-primary/50 transition-colors">
                   <img src="digisphere.png" alt="DigiSphere" className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
                 </div>

@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .grid-pattern {
+    background-image: radial-gradient(circle at 1px 1px, rgba(204, 255, 0, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+  }
+  .marquee {
+    display: flex;
+    overflow: hidden;
+    user-select: none;
+    gap: 2rem;
+  }
+  .marquee-content {
+    flex-shrink: 0;
+    display: flex;
+    justify-content: space-around;
+    min-width: 100%;
+    gap: 2rem;
+  }
+  @keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+  }
+  @keyframes scroll-right {
+    from { transform: translateX(-100%); }
+    to { transform: translateX(0); }
+  }
+  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
+  .animate-scroll-right { animation: scroll-right 30s linear infinite; }
+  
+  /* Hides scrollbar for the projects carousel */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}

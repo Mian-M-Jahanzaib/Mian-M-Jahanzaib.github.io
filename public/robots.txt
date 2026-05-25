@@ -1,3 +1,0 @@
-User-agent: *
-Allow: /
-Sitemap: https://mian-m-jahanzaib.github.io/sitemap.xml

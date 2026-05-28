@@ -2,41 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .grid-pattern {
-    background-image: radial-gradient(circle at 1px 1px, rgba(204, 255, 0, 0.05) 1px, transparent 0);
-    background-size: 40px 40px;
-  }
-  .marquee {
-    display: flex;
-    overflow: hidden;
-    user-select: none;
-    gap: 2rem;
-  }
-  .marquee-content {
-    flex-shrink: 0;
-    display: flex;
-    justify-content: space-around;
-    min-width: 100%;
-    gap: 2rem;
-  }
-  @keyframes scroll-left {
-    from { transform: translateX(0); }
-    to { transform: translateX(-100%); }
-  }
-  @keyframes scroll-right {
-    from { transform: translateX(-100%); }
-    to { transform: translateX(0); }
-  }
-  .animate-scroll-left { animation: scroll-left 30s linear infinite; }
-  .animate-scroll-right { animation: scroll-right 30s linear infinite; }
-  
-  /* Hides scrollbar for the projects carousel */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+/* Custom Stitch Generated Styles */
+body {
+  overflow-x: hidden;
+}
+.hero-gradient {
+  background: linear-gradient(135deg, #fbfbfd 0%, #e8e8ed 100%);
+}
+.text-hero-massive {
+  font-size: clamp(4rem, 15vw, 12rem);
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+}
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(210, 210, 215, 0.5);
+}
+.soft-shadow {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+}
+.vertical-text {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* Add this at the bottom of index.css */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }

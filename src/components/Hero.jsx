@@ -97,7 +97,7 @@ const Hero = () => {
               href="#about"
               className="font-label-md text-[10px] md:text-sm tracking-widest uppercase text-primary border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors"
             >
-              How I can help you? ⟶
+              Value ⟶
             </a>
           </motion.div>
         </div>

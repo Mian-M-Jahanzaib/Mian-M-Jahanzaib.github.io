@@ -27,7 +27,7 @@ const Footer = () => {
           <div className="flex gap-4 md:gap-6 flex-wrap justify-center md:justify-end text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase">
             <a
               className="text-secondary hover:text-primary transition-colors duration-300"
-              href="https://www.instagram.com/mmj_developer/"
+              href="https://www.instagram.com/mmj_developer"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -16,10 +16,10 @@ const Contact = () => {
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 text-center relative z-10">
         {/* Animated Availability Badge */}
         <motion.div
-          initial={{ opacity: 0, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1.2, ease: premiumEase }}
+          transition={{ duration: 0.8, ease: premiumEase }}
           className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8 md:mb-10"
         >
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
@@ -30,22 +30,25 @@ const Contact = () => {
 
         {/* Animated Headline */}
         <motion.h2
-          initial={{ opacity: 0, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
-          transition={{ duration: 1.2, ease: premiumEase }}
+          transition={{ duration: 0.8, ease: premiumEase }}
           className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-10 md:mb-14 tracking-tighter text-white md:whitespace-nowrap"
         >
           Let's build something exceptional.
         </motion.h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-          {/* Animated Email Card */}
-          <motion.a
-            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, ease: premiumEase }}
+        {/* Animated Grid Wrapper (Moves all cards perfectly together) */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: premiumEase }}
+          className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6"
+        >
+          {/* Email Card */}
+          <a
             className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center text-center gap-3 backdrop-blur-md"
             href="mailto:jahanzaibm120@gmail.com"
           >
@@ -62,14 +65,10 @@ const Contact = () => {
             <span className="text-sm md:text-base font-medium text-white/50 group-hover:text-white/90 transition-colors duration-500">
               jahanzaibm120@gmail.com
             </span>
-          </motion.a>
+          </a>
 
-          {/* Animated WhatsApp Card */}
-          <motion.a
-            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, ease: premiumEase }}
+          {/* WhatsApp Card */}
+          <a
             className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center text-center gap-3 backdrop-blur-md"
             href="https://wa.me/+923711570073"
             target="_blank"
@@ -88,14 +87,10 @@ const Contact = () => {
             <span className="text-sm md:text-base font-medium text-white/50 group-hover:text-white/90 transition-colors duration-500">
               +92 371 1570073
             </span>
-          </motion.a>
+          </a>
 
-          {/* Animated LinkedIn Card */}
-          <motion.a
-            initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
-            whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 1.2, ease: premiumEase }}
+          {/* LinkedIn Card */}
+          <a
             className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center text-center gap-3 backdrop-blur-md"
             href="https://linkedin.com/in/mian-m-jahanzaib"
             target="_blank"
@@ -114,8 +109,8 @@ const Contact = () => {
             <span className="text-sm md:text-base font-medium text-white/50 group-hover:text-white/90 transition-colors duration-500">
               linkedin.com/in/mian-m-jahanzaib
             </span>
-          </motion.a>
-        </div>
+          </a>
+        </motion.div>
       </div>
     </section>
   );

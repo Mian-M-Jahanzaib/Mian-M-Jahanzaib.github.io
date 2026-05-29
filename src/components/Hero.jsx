@@ -15,7 +15,7 @@ const Hero = () => {
           [ WORK ]
         </a>
       </div>
-      <div className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-50">
+      <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50">
         <a
           href="#contact"
           className="vertical-text font-label-sm text-[9px] md:text-xs tracking-[0.2em] text-secondary hover:text-primary transition-colors cursor-pointer block"
@@ -31,7 +31,7 @@ const Hero = () => {
           initial={{ opacity: 0, scale: 1.05 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1.2, ease: premiumEase }}
-          src="/portrait.png"
+          src="/portrait.webp"
           alt="Mian Muhammad Jahanzaib"
           className="w-auto h-full object-contain object-bottom drop-shadow-[0_15px_35px_rgba(0,0,0,0.08)]"
         />
@@ -91,13 +91,13 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.65, ease: premiumEase }}
-            className="flex items-center mt-32 md:mt-0"
+            className="flex items-center mt-40 md:mt-0"
           >
             <a
               href="#about"
               className="font-label-md text-[10px] md:text-sm tracking-widest uppercase text-primary border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors"
             >
-              Value ⟶
+              See Value ⟶
             </a>
           </motion.div>
         </div>

@@ -73,12 +73,12 @@ const Work = () => {
       id="work"
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24">
-        {/* Animated Headline */}
+        {/* Cinematic Focus Headline */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, ease: premiumEase }}
+          transition={{ duration: 1.2, ease: premiumEase }}
           className="mb-8 md:mb-10"
         >
           <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-primary leading-tight tracking-tighter">
@@ -86,12 +86,12 @@ const Work = () => {
           </h2>
         </motion.div>
 
-        {/* Animated Carousel Container */}
+        {/* Cinematic Focus Carousel Container */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.95, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.2, ease: premiumEase }}
+          transition={{ duration: 1.2, ease: premiumEase }}
           className="relative w-full h-[500px] md:h-[600px] flex justify-center items-center"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -107,7 +107,7 @@ const Work = () => {
                 onClick={() => {
                   if (!isCenter) setCurrentIndex(index);
                 }}
-                className={`absolute w-[85%] max-w-[320px] md:max-w-[450px] bg-white rounded-[2rem] p-4 border border-black/5 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] ${getCardStyle(index)}`}
+                className={`absolute w-[85%] max-w-[320px] md:max-w-[450px] bg-white rounded-[2rem] p-4 border border-black/5 transition-all duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${getCardStyle(index)}`}
               >
                 {/* Image Section */}
                 <ImageWrapper
@@ -117,15 +117,15 @@ const Work = () => {
                   className="group/img relative block aspect-[4/3] rounded-2xl overflow-hidden mb-5 bg-black/5"
                 >
                   <img
-                    className={`w-full h-full object-cover transition-transform duration-700 ${isClickable ? "group-hover/img:scale-105" : ""}`}
+                    className={`w-full h-full object-cover transition-transform duration-[1200ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${isClickable ? "group-hover/img:scale-105" : ""}`}
                     src={project.img}
                     alt={project.title}
                   />
 
                   {/* Hover Overlay */}
                   {isClickable && (
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                      <div className="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center scale-75 group-hover/img:scale-100 transition-transform duration-300 shadow-xl">
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover/img:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
+                      <div className="w-12 h-12 bg-white text-primary rounded-full flex items-center justify-center scale-75 group-hover/img:scale-100 transition-transform duration-500 shadow-xl">
                         <span className="material-symbols-outlined font-bold">
                           north_east
                         </span>
@@ -177,17 +177,18 @@ const Work = () => {
           })}
         </motion.div>
 
-        {/* Animated Navigation Indicators */}
+        {/* Cinematic Focus Navigation Indicators */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8, delay: 0.35, ease: premiumEase }}
+          initial={{ opacity: 0, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, filter: "blur(0px)" }}
+          /* CHANGED: margin set to 0px so it triggers right when its position hits the bottom of the viewport */
+          viewport={{ once: true, margin: "0px" }}
+          transition={{ duration: 1.2, ease: premiumEase }}
           className="flex justify-center items-center gap-6 mt-6 md:mt-8 z-40 relative"
         >
           <button
             onClick={handlePrev}
-            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-primary hover:bg-black/5 transition-colors"
+            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-primary hover:bg-black/5 transition-colors duration-300"
           >
             <span
               className="material-symbols-outlined text-xl"
@@ -201,14 +202,14 @@ const Work = () => {
             {projects.map((_, idx) => (
               <span
                 key={idx}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${currentIndex === idx ? "w-6 bg-primary" : "bg-black/20"}`}
+                className={`w-2 h-2 rounded-full transition-all duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${currentIndex === idx ? "w-6 bg-primary" : "bg-black/20"}`}
               ></span>
             ))}
           </div>
 
           <button
             onClick={handleNext}
-            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-primary hover:bg-black/5 transition-colors"
+            className="w-12 h-12 rounded-full border border-black/10 flex items-center justify-center text-primary hover:bg-black/5 transition-colors duration-300"
           >
             <span
               className="material-symbols-outlined text-xl"

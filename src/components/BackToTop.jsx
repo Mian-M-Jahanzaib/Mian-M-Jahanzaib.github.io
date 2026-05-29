@@ -51,7 +51,7 @@ const BackToTop = () => {
       id="smart-back-to-top"
       onClick={scrollToTop}
       aria-label="Back to top"
-      className={`fixed bottom-6 right-6 md:bottom-10 md:right-10 z-[99] w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-110 hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] 
+      className={`fixed bottom-6 right-6 md:bottom-10 md:right-9 z-[99] w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.12)] border transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] hover:scale-110 hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] 
       ${
         isVisible
           ? "opacity-100 translate-y-0"

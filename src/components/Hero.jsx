@@ -15,7 +15,7 @@ const Hero = () => {
           [ WORK ]
         </a>
       </div>
-      <div className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 z-50">
+      <div className="absolute right-6 md:right-6 top-1/2 -translate-y-1/2 z-50">
         <a
           href="#contact"
           className="vertical-text font-label-sm text-[9px] md:text-xs tracking-[0.2em] text-secondary hover:text-primary transition-colors cursor-pointer block"

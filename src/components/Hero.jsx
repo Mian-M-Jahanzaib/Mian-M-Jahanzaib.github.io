@@ -93,7 +93,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: premiumEase }}
-            className="font-bold text-primary tracking-tighter leading-[1.05] md:leading-[1.1] mb-4 md:mb-6 text-3xl min-[400px]:text-4xl md:text-[3.5rem] lg:text-[4.5rem]"
+            className="font-bold text-primary tracking-tighter leading-[1.05] md:leading-[1.1] mb-4 md:mb-6 text-4xl min-[400px]:text-5xl md:text-[3.5rem] lg:text-[4.5rem]"
           >
             Mian Muhammad <br className="block 2xl:hidden" /> Jahanzaib
           </motion.h2>
@@ -103,7 +103,8 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: premiumEase }}
-            className="mb-6 md:mb-8 inline-block cursor-pointer"
+            /* CHANGED: Block stretching exactly to the original paragraph's width limits */
+            className="mb-6 md:mb-8 block w-full md:max-w-md cursor-pointer"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={() => {
@@ -112,7 +113,7 @@ const Hero = () => {
             }}
           >
             <div
-              className="grid relative"
+              className="grid relative w-full"
               style={{ gridTemplateAreas: "'stack'" }}
             >
               {/* Front Side: Developer */}
@@ -123,7 +124,7 @@ const Hero = () => {
                   pointerEvents: isChess ? "none" : "auto",
                 }}
                 transition={{ duration: 0.5, ease: premiumEase }}
-                className="inline-flex items-center justify-center px-4 md:px-6 py-2.5 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
+                className="flex w-full items-center justify-center px-4 md:px-6 py-2.5 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
                 <h3 className="text-xs min-[400px]:text-sm md:text-xl font-black text-primary uppercase tracking-widest whitespace-nowrap flex">
@@ -151,13 +152,13 @@ const Hero = () => {
                 animate={{
                   rotateX: isChess ? 0 : -90,
                   opacity: isChess ? 1 : 0,
-                  pointerEvents: isChess ? "auto" : "none", // Ensures link is only clickable when visible
+                  pointerEvents: isChess ? "auto" : "none",
                 }}
                 transition={{ duration: 0.5, ease: premiumEase }}
-                className="inline-flex items-center justify-center gap-1.5 md:gap-3 px-4 md:px-6 py-2.5 rounded-full bg-black border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.5)] whitespace-nowrap"
+                className="flex w-full items-center justify-between gap-2 md:gap-4 px-5 min-[400px]:px-6 md:px-6 py-2.5 rounded-full bg-black border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.5)] whitespace-nowrap"
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
-                <h3 className="text-xs min-[400px]:text-sm md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
+                <h3 className="text-[10px] min-[400px]:text-[11px] md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
                   {"Part - Time Chess Player".split("").map((char, index) => (
                     <motion.span
                       key={index}
@@ -177,10 +178,10 @@ const Hero = () => {
 
                 {/* Slim Stacked Challenge Me Link */}
                 <motion.a
-                  href="https://www.chess.com/member/mian_jahanzaib" // <-- REPLACE YOUR USERNAME HERE
+                  href="https://www.chess.com/member/mian_jahanzaib"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()} // Prevents the card from flipping back when clicked
+                  onClick={(e) => e.stopPropagation()}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={
                     isChess
@@ -188,14 +189,14 @@ const Hero = () => {
                       : { opacity: 0, scale: 0.8 }
                   }
                   transition={{ duration: 0.3, delay: isChess ? 0.8 : 0 }}
-                  className="flex items-center gap-1 text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
+                  className="flex items-center gap-1 text-[6px] min-[400px]:text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
                 >
                   <span className="text-left leading-tight transition-colors">
                     Wanna Challenge
                     <br />
                     Me?
                   </span>
-                  <span className="material-symbols-outlined text-[10px] md:text-[12px] leading-none">
+                  <span className="material-symbols-outlined text-[8px] min-[400px]:text-[10px] md:text-[12px] leading-none">
                     north_east
                   </span>
                 </motion.a>
@@ -208,7 +209,8 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.55, ease: premiumEase }}
-            className="text-xs md:text-lg text-secondary font-medium tracking-wide leading-relaxed w-full md:max-w-md mb-6 md:mb-10"
+            /* CHANGED: Reverted back exactly to original bounds */
+            className="text-sm min-[400px]:text-base md:text-lg text-secondary font-medium tracking-wide leading-relaxed w-full md:max-w-md mb-6 md:mb-10"
           >
             Building software that solves real problems — Websites, Desktop
             apps, CRMs, POS systems, and more.

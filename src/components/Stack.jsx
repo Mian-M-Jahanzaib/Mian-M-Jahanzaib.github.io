@@ -118,6 +118,13 @@ const Stack = () => {
     "Next.js",
     "Prisma",
     "Shopify API",
+    "JavaScript (ES6+)",
+    "HTML",
+    "CSS",
+    "Express.js",
+    "MongoDB",
+    "REST APIs",
+    "UI/UX",
   ];
   const baseBottom = [
     "Core PHP",
@@ -126,6 +133,13 @@ const Stack = () => {
     "SQLite",
     "Tailwind CSS",
     "Git",
+    "GitHub",
+    "Vite",
+    "Vercel",
+    "Render",
+    "CI/CD",
+    "cPanel/FTP",
+    "OOP",
   ];
 
   const topRow = [...baseTop, ...baseTop, ...baseTop];

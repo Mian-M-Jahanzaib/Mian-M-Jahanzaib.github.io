@@ -123,10 +123,10 @@ const Hero = () => {
                   pointerEvents: isChess ? "none" : "auto",
                 }}
                 transition={{ duration: 0.5, ease: premiumEase }}
-                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
+                className="inline-flex items-center justify-center px-4 md:px-6 py-2.5 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
-                <h3 className="text-sm md:text-xl font-black text-primary uppercase tracking-widest whitespace-nowrap flex">
+                <h3 className="text-xs min-[400px]:text-sm md:text-xl font-black text-primary uppercase tracking-widest whitespace-nowrap flex">
                   {"Full - Stack Developer".split("").map((char, index) => (
                     <motion.span
                       key={index}
@@ -154,10 +154,10 @@ const Hero = () => {
                   pointerEvents: isChess ? "auto" : "none", // Ensures link is only clickable when visible
                 }}
                 transition={{ duration: 0.5, ease: premiumEase }}
-                className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-2.5 rounded-full bg-black border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.5)] whitespace-nowrap"
+                className="inline-flex items-center justify-center gap-1.5 md:gap-3 px-4 md:px-6 py-2.5 rounded-full bg-black border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.5)] whitespace-nowrap"
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
-                <h3 className="text-sm md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
+                <h3 className="text-xs min-[400px]:text-sm md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
                   {"Part - Time Chess Player".split("").map((char, index) => (
                     <motion.span
                       key={index}

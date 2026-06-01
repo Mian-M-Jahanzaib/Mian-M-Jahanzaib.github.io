@@ -1,8 +1,43 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
   const premiumEase = [0.16, 1, 0.3, 1];
+
+  // State and logic for the Chess flip badge
+  const [isChess, setIsChess] = useState(false);
+  const hasInteracted = useRef(false);
+
+  useEffect(() => {
+    // 1. Auto-flip to Chess after 4 seconds
+    const timer1 = setTimeout(() => {
+      if (!hasInteracted.current) {
+        setIsChess(true);
+      }
+    }, 4000);
+
+    // 2. Flip back to Developer 3 seconds later (Total 7 seconds)
+    const timer2 = setTimeout(() => {
+      if (!hasInteracted.current) {
+        setIsChess(false);
+      }
+    }, 7000);
+
+    return () => {
+      clearTimeout(timer1);
+      clearTimeout(timer2);
+    };
+  }, []);
+
+  const handleMouseEnter = () => {
+    hasInteracted.current = true;
+    setIsChess(true); // Hover reveals the Chess side
+  };
+
+  const handleMouseLeave = () => {
+    hasInteracted.current = true;
+    setIsChess(false); // Unhover goes back to the Developer side
+  };
 
   return (
     <section className="relative w-full h-[100dvh] flex items-center overflow-hidden hero-gradient">
@@ -63,16 +98,109 @@ const Hero = () => {
             Mian Muhammad <br className="block 2xl:hidden" /> Jahanzaib
           </motion.h2>
 
-          {/* Full-Stack Developer - REAL PREMIUM GLASS */}
+          {/* Full-Stack Developer / Chess Player Toggle */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.45, ease: premiumEase }}
-            className="inline-flex items-center justify-center px-6 py-2.5 mb-6 md:mb-8 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
+            className="mb-6 md:mb-8 inline-block cursor-pointer"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => {
+              hasInteracted.current = true;
+              setIsChess(!isChess);
+            }}
           >
-            <h3 className="text-sm md:text-xl font-black text-primary uppercase tracking-widest">
-              Full - Stack Developer
-            </h3>
+            <div
+              className="grid relative"
+              style={{ gridTemplateAreas: "'stack'" }}
+            >
+              {/* Front Side: Developer */}
+              <motion.div
+                animate={{
+                  rotateX: isChess ? 90 : 0,
+                  opacity: isChess ? 0 : 1,
+                  pointerEvents: isChess ? "none" : "auto",
+                }}
+                transition={{ duration: 0.5, ease: premiumEase }}
+                className="inline-flex items-center justify-center px-6 py-2.5 rounded-full bg-gradient-to-br from-white/70 to-white/10 backdrop-blur-xl border border-white/60 shadow-[inset_0_1px_1px_rgba(255,255,255,1),0_8px_30px_rgba(0,0,0,0.2)]"
+                style={{ gridArea: "stack", transformOrigin: "center" }}
+              >
+                <h3 className="text-sm md:text-xl font-black text-primary uppercase tracking-widest whitespace-nowrap flex">
+                  {"Full - Stack Developer".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={
+                        !isChess ? { opacity: 1, y: 0 } : { opacity: 0, y: 5 }
+                      }
+                      transition={{
+                        duration: 0.2,
+                        delay: !isChess ? index * 0.03 : 0,
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </h3>
+              </motion.div>
+
+              {/* Back Side: Chess Player */}
+              <motion.div
+                initial={{ rotateX: -90, opacity: 0 }}
+                animate={{
+                  rotateX: isChess ? 0 : -90,
+                  opacity: isChess ? 1 : 0,
+                  pointerEvents: isChess ? "auto" : "none", // Ensures link is only clickable when visible
+                }}
+                transition={{ duration: 0.5, ease: premiumEase }}
+                className="inline-flex items-center justify-center gap-2 md:gap-3 px-6 py-2.5 rounded-full bg-black border border-white/20 shadow-[0_8px_30px_rgba(0,0,0,0.5)] whitespace-nowrap"
+                style={{ gridArea: "stack", transformOrigin: "center" }}
+              >
+                <h3 className="text-sm md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
+                  {"Part - Time Chess Player".split("").map((char, index) => (
+                    <motion.span
+                      key={index}
+                      initial={{ opacity: 0, y: 5 }}
+                      animate={
+                        isChess ? { opacity: 1, y: 0 } : { opacity: 0, y: 5 }
+                      }
+                      transition={{
+                        duration: 0.2,
+                        delay: isChess ? index * 0.03 : 0,
+                      }}
+                    >
+                      {char === " " ? "\u00A0" : char}
+                    </motion.span>
+                  ))}
+                </h3>
+
+                {/* Slim Stacked Challenge Me Link */}
+                <motion.a
+                  href="https://www.chess.com/member/mian_jahanzaib" // <-- REPLACE YOUR USERNAME HERE
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()} // Prevents the card from flipping back when clicked
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={
+                    isChess
+                      ? { opacity: 1, scale: 1 }
+                      : { opacity: 0, scale: 0.8 }
+                  }
+                  transition={{ duration: 0.3, delay: isChess ? 0.8 : 0 }}
+                  className="flex items-center gap-1 text-[7px] md:text-[8px] font-bold uppercase tracking-widest text-white/70 hover:text-white transition-colors group"
+                >
+                  <span className="text-left leading-tight transition-colors">
+                    Wanna Challenge
+                    <br />
+                    Me?
+                  </span>
+                  <span className="material-symbols-outlined text-[10px] md:text-[12px] leading-none">
+                    north_east
+                  </span>
+                </motion.a>
+              </motion.div>
+            </div>
           </motion.div>
 
           {/* Description */}

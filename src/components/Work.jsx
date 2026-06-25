@@ -14,7 +14,7 @@ const Work = () => {
       desc: "Secure, high-performance Electron desktop application engineered for a Dubai-based real estate client to manage complex property workflows.",
       tags: ["Electron.js", "Node.js", "React"],
       img: "/al-aliah.jpg",
-      link: "https://www.linkedin.com/posts/mian-m-jahanzaib_softwareengineering-development-freelancing-ugcPost-7460764983811866625-SY6s/?utm_source=share&utm_medium=member_desktop&rcm=ACoAAFj5BbwBwBvyrUEzbEBI-P4N4Yw01NZRONM",
+      link: "https://github.com/Mian-M-Jahanzaib/Al-Aliah-International-Case-Study",
     },
     {
       title: "HabitGrid",

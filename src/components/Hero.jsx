@@ -73,7 +73,7 @@ const Hero = () => {
       </div>
 
       {/* LAYER 2: PURE TYPOGRAPHY */}
-      <div className="relative z-20 w-full md:w-[55%] h-full flex flex-col justify-start md:justify-center pt-10 md:pt-0 px-10 md:px-16 lg:px-24">
+      <div className="relative z-20 w-full md:w-[55%] h-full flex flex-col justify-start md:justify-center pt-10 md:pt-0 px-8 md:px-16 lg:px-24">
         <div className="max-w-xl w-full">
           {/* Based in Pakistan */}
           <motion.div

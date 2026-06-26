@@ -31,9 +31,9 @@ const Work = () => {
       link: "https://digisphere.iblogger.org/",
     },
     {
-      title: "Shopify Linked POS",
-      desc: "Engineered a highly scalable full-stack e-commerce backend utilizing ngrok tunnels for real-time Shopify webhook processing.",
-      tags: ["Prisma", "Shopify API", "Webhooks"],
+      title: "Shopify-Linked POS System",
+      desc: "Built a custom POS system for a local retail client, synced in real-time with their Shopify storefront — handling inventory, order processing, and automated stock updates.",
+      tags: ["Prisma", "Shopify API", "Node.js"],
       img: "/shopify.avif",
       link: "",
     },

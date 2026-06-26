@@ -128,7 +128,7 @@ const Hero = () => {
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
                 <h3 className="text-xs min-[400px]:text-sm md:text-xl font-black text-primary uppercase tracking-widest whitespace-nowrap flex">
-                  {"Full - Stack Developer".split("").map((char, index) => (
+                  {"Full-Stack Developer".split("").map((char, index) => (
                     <motion.span
                       key={index}
                       initial={{ opacity: 0, y: 5 }}
@@ -159,7 +159,7 @@ const Hero = () => {
                 style={{ gridArea: "stack", transformOrigin: "center" }}
               >
                 <h3 className="text-[10px] min-[400px]:text-[11px] md:text-xl font-black text-white uppercase tracking-widest whitespace-nowrap flex">
-                  {"Part - Time Chess Player".split("").map((char, index) => (
+                  {"Part-Time Chess Player".split("").map((char, index) => (
                     <motion.span
                       key={index}
                       initial={{ opacity: 0, y: 5 }}
@@ -224,10 +224,10 @@ const Hero = () => {
             className="flex items-center mt-40 md:mt-0"
           >
             <a
-              href="#about"
+              href="#services"
               className="font-label-md text-[10px] md:text-sm tracking-widest uppercase text-primary border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-colors"
             >
-              See Value ⟶
+              See Services ⟶
             </a>
           </motion.div>
         </div>

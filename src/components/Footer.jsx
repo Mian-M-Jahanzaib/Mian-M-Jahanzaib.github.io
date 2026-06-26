@@ -49,6 +49,22 @@ const Footer = () => {
             >
               X (Twitter)
             </a>
+            <a
+              className="text-secondary hover:text-primary transition-colors duration-300"
+              href="https://tiktok.com/mmj.developer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              TikTok
+            </a>
+            <a
+              className="text-secondary hover:text-primary transition-colors duration-300"
+              href="https://youtube.com/mmj.developer"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              YouTube
+            </a>
           </div>
         </div>
 

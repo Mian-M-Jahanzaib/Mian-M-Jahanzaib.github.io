@@ -51,7 +51,7 @@ const Footer = () => {
             </a>
             <a
               className="text-secondary hover:text-primary transition-colors duration-300"
-              href="https://tiktok.com/mmj.developer"
+              href="https://tiktok.com/@mmj.developer"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -59,7 +59,7 @@ const Footer = () => {
             </a>
             <a
               className="text-secondary hover:text-primary transition-colors duration-300"
-              href="https://youtube.com/mmj.developer"
+              href="https://youtube.com/@mmj.developer"
               target="_blank"
               rel="noopener noreferrer"
             >

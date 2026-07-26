@@ -50,7 +50,7 @@ const Contact = () => {
           {/* Email Card */}
           <a
             className="group p-8 rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 hover:-translate-y-2 transition-all duration-500 flex flex-col items-center justify-center text-center gap-3 backdrop-blur-md"
-            href="mailto:jahanzaibm120@gmail.com"
+            href="mailto:mianmjahanzaib@gmail.com"
           >
             <svg
               viewBox="0 0 24 24"
@@ -63,7 +63,7 @@ const Contact = () => {
               Email
             </span>
             <span className="text-sm md:text-base font-medium text-white/50 group-hover:text-white/90 transition-colors duration-500">
-              jahanzaibm120@gmail.com
+              mianmjahanzaib@gmail.com
             </span>
           </a>
 

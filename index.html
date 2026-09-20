@@ -31,7 +31,7 @@
       content="Full-Stack Developer from Pakistan building production-ready website and desktop software. React, Next.js, Node.js, Electron, and TypeScript."
     />
 
-    <!-- ADDED: Social Media Preview Card Images -->
+    <!-- Social Media Preview Card Images -->
     <meta
       property="og:image"
       content="https://mian-m-jahanzaib.github.io/favicon.jpeg"
@@ -42,16 +42,18 @@
       content="https://mian-m-jahanzaib.github.io/favicon.jpeg"
     />
 
+    <!-- MENTOR FIX 1: Preload the hero image for instant LCP -->
+    <link rel="preload" as="image" href="/portrait.webp" fetchpriority="high" />
+
+    <!-- MENTOR FIX 2: Optimized Google Fonts (Removed unused weight 800) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
-      rel="stylesheet"
-    />
+
+    <!-- MENTOR FIX 3: Material Symbols stylesheet has been REMOVED to fix text flashing -->
 
     <meta
       name="google-site-verification"

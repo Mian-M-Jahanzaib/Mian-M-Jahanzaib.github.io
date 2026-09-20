@@ -6,43 +6,34 @@ const BackToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      // 1. Visibility Logic (Show after scrolling 500px)
       setIsVisible(window.scrollY > 500);
-
-      // 2. Spatial Awareness / Collision Detection Logic
-      const button = document.getElementById("smart-back-to-top");
-      const contactSection = document.getElementById("contact");
-
-      if (button && contactSection) {
-        // Get the exact physical boundaries of the button and the contact section on the screen
-        const buttonRect = button.getBoundingClientRect();
-        const contactRect = contactSection.getBoundingClientRect();
-
-        // Find the absolute center of the button
-        const buttonCenterY = buttonRect.top + buttonRect.height / 2;
-
-        // Check if the button's center is floating over the contact section
-        if (
-          buttonCenterY >= contactRect.top &&
-          buttonCenterY <= contactRect.bottom
-        ) {
-          setIsOverDarkSection(true); // Invert colors!
-        } else {
-          setIsOverDarkSection(false); // Default colors
-        }
-      }
     };
 
-    // Attach the scroll listener (using passive for maximum performance)
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    const contactSection = document.getElementById("contact");
+    let observer;
+
+    if (contactSection) {
+      observer = new IntersectionObserver(
+        ([entry]) => {
+          setIsOverDarkSection(entry.isIntersecting);
+        },
+        { rootMargin: "0px 0px -15% 0px", threshold: 0 },
+      );
+
+      observer.observe(contactSection);
+    }
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (observer && contactSection) observer.disconnect();
+    };
   }, []);
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth",
     });
   };
 
@@ -59,13 +50,19 @@ const BackToTop = () => {
       } 
       ${
         isOverDarkSection
-          ? "bg-white text-primary border-white" // High-contrast inverted state over Contact
-          : "bg-primary text-white border-transparent" // Default state
+          ? "bg-white text-primary border-white"
+          : "bg-primary text-white border-transparent"
       }`}
     >
-      <span className="material-symbols-outlined text-xl md:text-2xl font-bold">
-        arrow_upward
-      </span>
+      {/* MENTOR FIX: SVG Replacement */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        className="w-[1em] h-[1em] text-xl md:text-2xl font-bold"
+      >
+        <path d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z" />
+      </svg>
     </button>
   );
 };

@@ -72,14 +72,15 @@ export default {
         section: "120px",
       },
       fontFamily: {
-        "headline-md": ["Inter"],
-        "label-md": ["Inter"],
-        "label-sm": ["Inter"],
-        "body-md": ["Inter"],
-        "headline-lg-mobile": ["Inter"],
-        "display-lg": ["Inter"],
-        "body-lg": ["Inter"],
-        "headline-lg": ["Inter"],
+        // MENTOR FIX: Added fallbacks to prevent font flashing
+        "headline-md": ["Inter", "system-ui", "sans-serif"],
+        "label-md": ["Inter", "system-ui", "sans-serif"],
+        "label-sm": ["Inter", "system-ui", "sans-serif"],
+        "body-md": ["Inter", "system-ui", "sans-serif"],
+        "headline-lg-mobile": ["Inter", "system-ui", "sans-serif"],
+        "display-lg": ["Inter", "system-ui", "sans-serif"],
+        "body-lg": ["Inter", "system-ui", "sans-serif"],
+        "headline-lg": ["Inter", "system-ui", "sans-serif"],
       },
       fontSize: {
         "headline-md": ["24px", { lineHeight: "1.3", fontWeight: "600" }],

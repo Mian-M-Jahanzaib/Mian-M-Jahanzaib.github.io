@@ -7,9 +7,21 @@ const MarqueeRow = ({ items, direction = "left", speed = 1 }) => {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
+  // MENTOR FIX: Track if the component is actually on screen
+  const isInView = useRef(false);
+
   useEffect(() => {
     const row = rowRef.current;
     if (!row) return;
+
+    // MENTOR FIX: Use IntersectionObserver to pause off-screen animations
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        isInView.current = entry.isIntersecting;
+      },
+      { rootMargin: "50px" },
+    );
+    observer.observe(row);
 
     // If scrolling right, initialize scroll position to the middle to prevent snapping
     if (direction === "right") {
@@ -19,8 +31,8 @@ const MarqueeRow = ({ items, direction = "left", speed = 1 }) => {
     let animationFrameId;
 
     const scroll = () => {
-      // Only auto-scroll if the user IS NOT actively dragging/holding
-      if (!isDragging.current && row) {
+      // MENTOR FIX: Only run expensive DOM calculations if the element is actually on screen!
+      if (!isDragging.current && row && isInView.current) {
         const halfWidth = row.scrollWidth / 2;
 
         if (direction === "left") {
@@ -39,7 +51,10 @@ const MarqueeRow = ({ items, direction = "left", speed = 1 }) => {
     };
 
     animationFrameId = requestAnimationFrame(scroll);
-    return () => cancelAnimationFrame(animationFrameId);
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      observer.disconnect();
+    };
   }, [direction, speed]);
 
   // --- MOUSE & TOUCH DRAG LOGIC ---
@@ -77,6 +92,8 @@ const MarqueeRow = ({ items, direction = "left", speed = 1 }) => {
   return (
     <div
       ref={rowRef}
+      /* MENTOR FIX: Hide duplicate animated visual text from screen readers */
+      aria-hidden="true"
       className="flex overflow-x-hidden cursor-grab active:cursor-grabbing w-full no-scrollbar select-none"
       style={{ touchAction: "pan-y" }} // Allows vertical page scrolling, but captures horizontal swipes
       onMouseDown={(e) => handleInteractionStart(e.pageX)}
@@ -110,7 +127,6 @@ const MarqueeRow = ({ items, direction = "left", speed = 1 }) => {
 };
 
 const Stack = () => {
-  // We duplicate the core stack multiple times in the array so it easily fills large 4K monitors
   const baseTop = [
     "React",
     "TypeScript",
@@ -145,8 +161,21 @@ const Stack = () => {
   const topRow = [...baseTop, ...baseTop, ...baseTop];
   const bottomRow = [...baseBottom, ...baseBottom, ...baseBottom];
 
+  // Combine unique skills for the screen reader
+  const uniqueSkills = [...new Set([...baseTop, ...baseBottom])];
+
   return (
     <section className="py-12 md:py-24 border-b border-outline-variant/30 bg-surface-container-lowest overflow-hidden">
+      {/* MENTOR FIX: Visually hidden but clean <ul> list for screen readers and SEO crawlers */}
+      <div className="sr-only">
+        <h2>Technical Skills</h2>
+        <ul>
+          {uniqueSkills.map((skill) => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </div>
+
       <div className="flex flex-col gap-6 md:gap-10">
         {/* speed={1} controls how fast it moves when not touched */}
         <MarqueeRow items={topRow} direction="left" speed={1.2} />

@@ -1,5 +1,6 @@
 import React from "react";
-import { motion } from "framer-motion";
+// eslint-disable-next-line no-unused-vars
+import { m } from "framer-motion";
 
 const Contact = () => {
   // Luxury Apple-style easing curve
@@ -15,7 +16,7 @@ const Contact = () => {
 
       <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-24 text-center relative z-10">
         {/* Animated Availability Badge */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -26,10 +27,10 @@ const Contact = () => {
           <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-white/80">
             Available for freelance projects and full/part-time opportunities
           </span>
-        </motion.div>
+        </m.div>
 
         {/* Animated Headline */}
-        <motion.h2
+        <m.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -37,10 +38,10 @@ const Contact = () => {
           className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold mb-10 md:mb-14 tracking-tighter text-white md:whitespace-nowrap"
         >
           Let's build something exceptional.
-        </motion.h2>
+        </m.h2>
 
         {/* Animated Grid Wrapper (Moves all cards perfectly together) */}
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
@@ -110,7 +111,7 @@ const Contact = () => {
               linkedin.com/in/mian-m-jahanzaib
             </span>
           </a>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

@@ -5,30 +5,46 @@ const BackToTop = () => {
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setIsVisible(window.scrollY > 500);
+      // MENTOR FIX: Throttle the scroll event to 60fps to prevent layout thrashing
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          // 1. Visibility Logic
+          setIsVisible(window.scrollY > 500);
+
+          // 2. Pixel-Perfect Collision Detection (Restored original accuracy)
+          const button = document.getElementById("smart-back-to-top");
+          const contactSection = document.getElementById("contact");
+
+          if (button && contactSection) {
+            const buttonRect = button.getBoundingClientRect();
+            const contactRect = contactSection.getBoundingClientRect();
+
+            // Find the absolute mathematical center of the button
+            const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+
+            // Invert only when the button's exact center crosses the dark section
+            if (
+              buttonCenterY >= contactRect.top &&
+              buttonCenterY <= contactRect.bottom
+            ) {
+              setIsOverDarkSection(true);
+            } else {
+              setIsOverDarkSection(false);
+            }
+          }
+
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });
 
-    const contactSection = document.getElementById("contact");
-    let observer;
-
-    if (contactSection) {
-      observer = new IntersectionObserver(
-        ([entry]) => {
-          setIsOverDarkSection(entry.isIntersecting);
-        },
-        { rootMargin: "0px 0px -15% 0px", threshold: 0 },
-      );
-
-      observer.observe(contactSection);
-    }
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      if (observer && contactSection) observer.disconnect();
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const scrollToTop = () => {
@@ -54,7 +70,6 @@ const BackToTop = () => {
           : "bg-primary text-white border-transparent"
       }`}
     >
-      {/* MENTOR FIX: SVG Replacement */}
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
